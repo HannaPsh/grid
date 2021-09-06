@@ -1,0 +1,95 @@
+/**
+ * Grids with specific positioning
+ */
+
+ 
+    [class*="container-"] {
+        height: 300px;
+        width: 600px;
+        border: 1px solid #333;
+        display: grid;
+    }
+    
+    /**
+     * Grids with specific positioning
+     */
+    .container-1 {
+        grid-template-columns: [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end];
+        grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line];
+    }
+   
+    /**
+     * Grids without specific positioning
+     */ 
+     
+    .container-2 {
+        grid-template-columns: repeat(3, 1fr); /* 1fr 1fr 1fr */
+        grid-template-rows: auto;
+    
+        padding: 10px;
+        column-gap: 10px;
+        row-gap: 10px;
+        /* Short-hand for gap */
+        gap: 10px 10px; /* row-gap column-gap */
+    
+    
+        justify-items: stretch; /* start | end | center | stretch (default);*/
+        align-items: stretch; /* start | end | center | stretch; (default)*/
+        /* Short-hand */
+        place-items: stretch stretch;  /* align-items justify-items */
+        place-items: stretch;  /* align-items / justify-items */
+    
+        /* Needs available space to move around  */
+        justify-content: stretch; /* start | end | center | stretch(default) | space-around | space-between | space-evenly;*/
+        align-content: stretch; /* start | end | center | stretch(default) | space-around | space-between | space-evenly;*/
+        /* Short-hand */
+        place-content: stretch stretch;  /* align-content justify-content */
+        place-content: stretch;  /* align-content / justify-content */
+    }
+    
+    [class*="box"] {
+        /* height: 50px;
+        width: 50px; */
+        border: 1px solid #333;
+    }
+    
+    .box5 {
+        justify-self: stretch; /* start | end | center | stretch (default);*/
+        align-self: stretch; /* start | end | center | stretch; (default)*/
+        /* Short-hand */
+        place-self: center center;  /* align-self justify-self */
+        place-self: center;  /* align-self / justify-self */
+        }
+
+        .container-3 {
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            grid-template-areas:
+               "header header header sidebar"
+               "content content content sidebar"
+               "footer footer footer sidebar"
+            ;
+        
+            padding: 10px;
+            gap: 10px;
+        }
+        
+        header {
+            background-color: pink;
+            grid-area: header;
+        }
+        
+        main {
+            background-color: beige;
+            grid-area: content;
+        }
+        
+        aside {
+            background-color: lightgreen;
+            grid-area: sidebar;
+        }
+        
+        footer {
+            background-color: skyblue;
+            grid-area: footer;
+        } 
